@@ -1,36 +1,74 @@
+import 'package:bitik_mobile_app/common_widgets/custom_bottom_navbar/custom_bnb_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-class CustomBNB extends StatefulWidget {
-  CustomBNB({Key? key}) : super(key: key);
+// class CustomBNB extends StatefulWidget {
+//   CustomBNB({Key? key}) : super(key: key);
 
+//   @override
+//   _CustomBNBState createState() => _CustomBNBState();
+// }
+
+// class _CustomBNBState extends State<CustomBNB> {
+//   int _selectedIndex = 0;
+
+//   void _onItemTapped(int index) {
+//     setState(() {
+//       _selectedIndex = index;
+//     });
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return BottomNavigationBar(
+//       items: <BottomNavigationBarItem>[
+//         BottomNavigationBarItem(
+//           icon: FaIcon(
+//             FontAwesomeIcons.home,
+//           ),
+//           label: 'Anasayfa',
+//           backgroundColor: HexColor("fafafa"),
+//         ),
+//         BottomNavigationBarItem(
+//           icon: FaIcon(
+//             FontAwesomeIcons.bars,
+//           ),
+//           label: 'Kategoriler',
+//           backgroundColor: HexColor("fafafa"),
+//         ),
+//         BottomNavigationBarItem(
+//           icon: FaIcon(
+//             FontAwesomeIcons.gift,
+//           ),
+//           label: 'Çekilişler',
+//           backgroundColor: HexColor("fafafa"),
+//         ),
+//         BottomNavigationBarItem(
+//           icon: FaIcon(
+//             FontAwesomeIcons.userAlt,
+//           ),
+//           label: 'Hesap',
+//           backgroundColor: HexColor("fafafa"),
+//         ),
+//       ],
+//       currentIndex: _selectedIndex,
+//       unselectedIconTheme: IconThemeData(color: HexColor("878787")),
+//       unselectedItemColor: HexColor("878787"),
+//       selectedItemColor: Colors.black,
+//       selectedIconTheme: IconThemeData(color: Colors.black),
+//       onTap: _onItemTapped,
+//     );
+//   }
+// }
+
+class CustomBottomNavBar extends StatefulWidget {
   @override
-  _CustomBNBState createState() => _CustomBNBState();
+  State<CustomBottomNavBar> createState() => _CustomBottomNavBarState();
 }
 
-class _CustomBNBState extends State<CustomBNB> {
+class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Anasayfa',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Kategoriler',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: Çekilişler',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 3: Hesap',
-      style: optionStyle,
-    ),
-  ];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -40,32 +78,55 @@ class _CustomBNBState extends State<CustomBNB> {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: 'Anasayfa',
-          backgroundColor: HexColor("1F1F39"),
-        ),
-        BottomNavigationBarItem(
-          icon: FaIcon(FontAwesomeIcons.alignJustify),
-          label: 'Kategoriler',
-          backgroundColor: HexColor("1F1F39"),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.campaign),
-          label: 'Çekilişler',
-          backgroundColor: HexColor("1F1F39"),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.account_box_rounded),
-          label: 'Hesap',
-          backgroundColor: HexColor("1F1F39"),
-        ),
-      ],
-      currentIndex: _selectedIndex,
-      selectedItemColor: Colors.white,
-      onTap: _onItemTapped,
+    final Color inActiveIconColor = Color(0xFFB6B6B6);
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Color(0xFFDADADA).withOpacity(0.15),
+          ),
+        ],
+      ),
+      child: SafeArea(
+          child: BottomNavigationBar(
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: FaIcon(
+              FontAwesomeIcons.home,
+            ),
+            label: 'Anasayfa',
+            backgroundColor: HexColor("fafafa"),
+          ),
+          BottomNavigationBarItem(
+            icon: FaIcon(
+              FontAwesomeIcons.bars,
+            ),
+            label: 'Kategoriler',
+            backgroundColor: HexColor("fafafa"),
+          ),
+          BottomNavigationBarItem(
+            icon: FaIcon(
+              FontAwesomeIcons.gift,
+            ),
+            label: 'Çekilişler',
+            backgroundColor: HexColor("fafafa"),
+          ),
+          BottomNavigationBarItem(
+            icon: FaIcon(
+              FontAwesomeIcons.userAlt,
+            ),
+            label: 'Hesap',
+            backgroundColor: HexColor("fafafa"),
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        unselectedIconTheme: IconThemeData(color: HexColor("878787")),
+        unselectedItemColor: HexColor("878787"),
+        selectedItemColor: Colors.black,
+        selectedIconTheme: IconThemeData(color: Colors.black),
+        onTap: _onItemTapped,
+      )),
     );
   }
 }
