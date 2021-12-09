@@ -1,1 +1,1 @@
-enum AllTabs { Home, Category, Campaign, Account }
+enum AllTabs { Home, Campaign, Account }

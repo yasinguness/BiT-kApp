@@ -4,8 +4,8 @@ import 'package:bitik_mobile_app/pages/home/components/section_title.dart';
 import 'package:bitik_mobile_app/size_config.dart';
 import 'package:flutter/material.dart';
 
-class PopularProducts extends StatelessWidget {
-  const PopularProducts({Key? key}) : super(key: key);
+class WillBeOverSoon extends StatelessWidget {
+  const WillBeOverSoon({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,9 +13,10 @@ class PopularProducts extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding:
-              EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-          child: SectionTitle(title: "Popüler Ürünler", press: () {}),
+          padding: EdgeInsets.symmetric(
+            horizontal: getProportionateScreenWidth(20),
+          ),
+          child: SectionTitle(title: "Yakında Bitecek", press: () {}),
         ),
         SizedBox(height: getProportionateScreenWidth(10)),
         SingleChildScrollView(

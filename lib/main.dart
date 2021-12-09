@@ -1,4 +1,5 @@
 import 'package:bitik_mobile_app/pages/home/page/home_page.dart';
+import 'package:bitik_mobile_app/pages/login/sign_in.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';

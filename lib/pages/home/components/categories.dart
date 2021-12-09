@@ -1,23 +1,25 @@
 import 'package:bitik_mobile_app/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class Categories extends StatelessWidget {
   List<Map<String, dynamic>> categories = [
-    {"icon": "assets/icons/Flash Icon.svg", "text": "Flash Deal"},
-    {"icon": "assets/icons/Bill Icon.svg", "text": "Bill"},
-    {"icon": "assets/icons/Game Icon.svg", "text": "Game"},
-    {"icon": "assets/icons/Gift Icon.svg", "text": "Daily Gift"},
-    {"icon": "assets/icons/Discover.svg", "text": "More"},
+    {"icon": "lib/assets/icons/mobile.svg", "text": "Telefon"},
+    {"icon": "lib/assets/icons/desktop.svg", "text": "Bilgisayar"},
+    {"icon": "lib/assets/icons/headphones.svg", "text": "Kulaklık"},
+    {"icon": "lib/assets/icons/watch.svg", "text": "Akıllı Saat"},
+    {"icon": "lib/assets/icons/more.svg", "text": "Daha Fazla"},
   ];
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Padding(
       padding: EdgeInsets.only(
-          top: getProportionateScreenWidth(50),
-          left: getProportionateScreenWidth(20),
+          top: getProportionateScreenWidth(9),
+          left: getProportionateScreenWidth(15),
           bottom: getProportionateScreenWidth(20),
-          right: getProportionateScreenWidth(20)),
+          right: getProportionateScreenWidth(15)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,18 +50,18 @@ class CategoryCard extends StatelessWidget {
     return GestureDetector(
       onTap: press,
       child: SizedBox(
-        width: getProportionateScreenWidth(55),
+        width: getProportionateScreenWidth(60),
         child: Column(
           children: [
             Container(
               padding: EdgeInsets.all(getProportionateScreenWidth(15)),
-              height: getProportionateScreenWidth(55),
-              width: getProportionateScreenWidth(55),
+              height: getProportionateScreenWidth(50),
+              width: getProportionateScreenWidth(50),
               decoration: BoxDecoration(
-                color: Color(0xFFFFECDF),
+                color: HexColor("#e6d1e4"),
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Icon(Icons.home),
+              child: SvgPicture.asset(icon!),
             ),
             SizedBox(height: 5),
             Text(text!, textAlign: TextAlign.center)

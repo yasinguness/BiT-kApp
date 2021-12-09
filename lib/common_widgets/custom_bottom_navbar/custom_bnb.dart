@@ -98,13 +98,13 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
             label: 'Anasayfa',
             backgroundColor: HexColor("fafafa"),
           ),
-          BottomNavigationBarItem(
-            icon: FaIcon(
-              FontAwesomeIcons.bars,
-            ),
-            label: 'Kategoriler',
-            backgroundColor: HexColor("fafafa"),
-          ),
+          // BottomNavigationBarItem(
+          //   icon: FaIcon(
+          //     FontAwesomeIcons.bars,
+          //   ),
+          //   label: 'Kategoriler',
+          //   backgroundColor: HexColor("fafafa"),
+          // ),
           BottomNavigationBarItem(
             icon: FaIcon(
               FontAwesomeIcons.gift,

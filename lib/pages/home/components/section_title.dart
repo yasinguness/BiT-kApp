@@ -18,14 +18,14 @@ class SectionTitle extends StatelessWidget {
         Text(
           title,
           style: TextStyle(
-            fontSize: 12,
+            fontSize: 20,
             color: Colors.black,
           ),
         ),
         GestureDetector(
           onTap: press,
           child: Text(
-            "See More",
+            "Daha Fazla",
             style: TextStyle(color: Color(0xFFBBBBBB)),
           ),
         ),
