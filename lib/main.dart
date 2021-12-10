@@ -1,7 +1,11 @@
+<<<<<<< HEAD
 import 'package:bitik_mobile_app/pages/home/page/home_page.dart';
 import 'package:bitik_mobile_app/pages/login/sign_in.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+=======
+import 'package:bitik_mobile_app/pages/sign_in.dart';
+>>>>>>> 04_LastLogin
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -18,8 +22,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home:SignIn() ,
     );
   }
 }
