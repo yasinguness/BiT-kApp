@@ -1,6 +1,8 @@
 import 'package:bitik_mobile_app/pages/home/components/search_field.dart';
 import 'package:bitik_mobile_app/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({
@@ -13,14 +15,46 @@ class HomeHeader extends StatelessWidget {
     return Padding(
       padding:
           EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Column(
         children: [
-          Text(
-            'BiTık',
-            style: TextStyle(fontSize: 25),
+          Stack(
+            children: [
+              Center(
+                child: Container(
+                  padding: EdgeInsets.only(top: 6),
+                  child: Text(
+                    'BiTık',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.only(right: 0, top: 6),
+                alignment: Alignment.topRight,
+                child: Image.asset(
+                  "lib/assets/images/pp.png",
+                  height: 40,
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.only(left: 0, top: 10),
+                alignment: Alignment.topLeft,
+                child: FaIcon(
+                  FontAwesomeIcons.plus,
+                  color: HexColor("c299c0"),
+                ),
+              ),
+            ],
           ),
-          SearchField(),
+          SizedBox(
+            height: 9,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SearchField(),
+            ],
+          ),
         ],
       ),
     );

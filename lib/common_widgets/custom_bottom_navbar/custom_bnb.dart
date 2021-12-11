@@ -92,10 +92,15 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
           child: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: FaIcon(
-              FontAwesomeIcons.home,
+            icon: Container(
+              padding: EdgeInsets.only(top: 1, bottom: 0),
+              margin: EdgeInsets.only(bottom: 0),
+              child: FaIcon(
+                FontAwesomeIcons.home,
+                size: 22,
+              ),
             ),
-            label: 'Anasayfa',
+            label: '',
             backgroundColor: HexColor("fafafa"),
           ),
           // BottomNavigationBarItem(
@@ -108,23 +113,25 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
           BottomNavigationBarItem(
             icon: FaIcon(
               FontAwesomeIcons.gift,
+              size: 22,
             ),
-            label: 'Çekilişler',
+            label: '',
             backgroundColor: HexColor("fafafa"),
           ),
           BottomNavigationBarItem(
             icon: FaIcon(
               FontAwesomeIcons.userAlt,
+              size: 22,
             ),
-            label: 'Hesap',
+            label: '',
             backgroundColor: HexColor("fafafa"),
           ),
         ],
         currentIndex: _selectedIndex,
         unselectedIconTheme: IconThemeData(color: HexColor("878787")),
         unselectedItemColor: HexColor("878787"),
-        selectedItemColor: Colors.black,
-        selectedIconTheme: IconThemeData(color: Colors.black),
+        selectedItemColor: HexColor("c299c0"),
+        selectedIconTheme: IconThemeData(color: HexColor("c299c0")),
         onTap: _onItemTapped,
       )),
     );

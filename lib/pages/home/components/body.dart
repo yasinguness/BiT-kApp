@@ -14,16 +14,29 @@ class Body extends StatelessWidget {
         child: Column(
           children: [
             HomeHeader(),
+            SizedBox(
+              height: 9,
+            ),
+            // Divider(
+            //   color: Colors.black,
+            //   thickness: 0.3,
+            //   height: 15.6,
+            // ),
+            DiscountBanner(),
+            Categories(),
             Divider(
               color: Colors.black,
               thickness: 0.3,
-              height: 15.6,
+              height: 10,
             ),
-            DiscountBanner(),
-            Categories(),
             PopularProducts(),
+            Divider(
+              color: Colors.black,
+              thickness: 0.3,
+              height: 10,
+            ),
             SizedBox(
-              height: 40,
+              height: 15,
             ),
             WillBeOverSoon(),
           ],

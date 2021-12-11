@@ -4,7 +4,6 @@ import 'package:bitik_mobile_app/common_widgets/custom_bottom_navbar/custom_bnb_
 import 'package:bitik_mobile_app/pages/home/components/app_bar.dart';
 import 'package:bitik_mobile_app/pages/home/components/body.dart';
 import 'package:bitik_mobile_app/pages/home/components/categories.dart';
-import 'package:bitik_mobile_app/repositories/base_repository.dart';
 import 'package:bitik_mobile_app/repositories/product_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
