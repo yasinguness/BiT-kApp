@@ -1,3 +1,1 @@
-class Entity{
-  
-}
+abstract class Entity {}

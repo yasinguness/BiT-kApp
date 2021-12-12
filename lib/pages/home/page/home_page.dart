@@ -9,21 +9,17 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
+  static String routeName = "/home";
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    // ProductRepository productRepo = ProductRepository();
-    // productRepo.Create();
     return Scaffold(
       body: Body(),
-      bottomNavigationBar: CustomBottomNavBar(),
+      bottomNavigationBar: CustomBottomNavBar(
+        selectedMenu: AllTabs.Home,
+      ),
     );
   }
 }

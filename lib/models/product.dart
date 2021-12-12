@@ -1,7 +1,7 @@
 import 'package:bitik_mobile_app/models/entity.dart';
 import 'package:flutter/material.dart';
 
-class Product {
+class Product implements Entity {
   final dynamic title, description;
   final dynamic images;
   final dynamic colors;

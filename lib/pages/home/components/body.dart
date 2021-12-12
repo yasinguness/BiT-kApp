@@ -29,6 +29,9 @@ class Body extends StatelessWidget {
               thickness: 0.3,
               height: 10,
             ),
+            SizedBox(
+              height: 5,
+            ),
             PopularProducts(),
             Divider(
               color: Colors.black,
@@ -36,7 +39,7 @@ class Body extends StatelessWidget {
               height: 10,
             ),
             SizedBox(
-              height: 15,
+              height: 5,
             ),
             WillBeOverSoon(),
           ],

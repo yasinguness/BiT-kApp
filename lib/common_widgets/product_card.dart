@@ -31,10 +31,7 @@ class ProductCard extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  child: Hero(
-                    tag: product.title.toString(),
-                    child: Image.asset(product.images[0]),
-                  ),
+                  child: Image.asset(product.images[0]),
                 ),
               ),
               const SizedBox(height: 10),

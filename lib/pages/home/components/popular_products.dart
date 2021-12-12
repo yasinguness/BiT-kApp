@@ -15,6 +15,7 @@ class PopularProducts extends StatefulWidget {
 }
 
 class _PopularProductsState extends State<PopularProducts> {
+  ProductRepository prod = ProductRepository();
   @override
   Widget build(BuildContext context) {
     var firestore = FirebaseFirestore.instance;
@@ -23,6 +24,7 @@ class _PopularProductsState extends State<PopularProducts> {
     //     FirebaseFirestore.instance.collection('products');
     // QuerySnapshot querySnapshot = await products.get();
     SizeConfig().init(context);
+    // prod.Create();
     return Column(
       children: [
         Padding(
@@ -60,7 +62,8 @@ class _PopularProductsState extends State<PopularProducts> {
                                 images: listOfDocuments[index]["images"],
                                 price: listOfDocuments[index]["price"],
                                 title: listOfDocuments[index]["title"],
-                                isPopular: listOfDocuments[index]["isPopular"],
+                                isPopular: listOfDocuments[index]
+                                    ["isPopular"],
                                 isSoon: listOfDocuments[index]["isSoon"],
                                 rating: listOfDocuments[index]["rating"]));
                       }
