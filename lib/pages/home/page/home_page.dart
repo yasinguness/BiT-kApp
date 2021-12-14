@@ -1,7 +1,7 @@
 import 'dart:ui';
 import 'package:bitik_mobile_app/common_widgets/custom_bottom_navbar/custom_bnb.dart';
 import 'package:bitik_mobile_app/common_widgets/custom_bottom_navbar/custom_bnb_tab.dart';
-import 'package:bitik_mobile_app/pages/home/components/app_bar.dart';
+import 'package:bitik_mobile_app/common_widgets/app_bar.dart';
 import 'package:bitik_mobile_app/pages/home/components/body.dart';
 import 'package:bitik_mobile_app/pages/home/components/categories.dart';
 import 'package:bitik_mobile_app/repositories/product_repository.dart';
@@ -10,15 +10,19 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  HomePage({Key? key}) : super(key: key);
   static String routeName = "/home";
+  final GlobalKey<NavigatorState> navigatorKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Body(),
-      bottomNavigationBar: CustomBottomNavBar(
-        selectedMenu: AllTabs.Home,
+    return WillPopScope(
+      onWillPop: () async => !await navigatorKey.currentState!.maybePop(),
+      child: Scaffold(
+        body: Body(),
+        bottomNavigationBar: CustomBottomNavBar(
+          selectedMenu: AllTabs.Home,
+        ),
       ),
     );
   }

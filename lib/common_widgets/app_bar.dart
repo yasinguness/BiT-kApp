@@ -39,9 +39,9 @@ class HomeHeader extends StatelessWidget {
               Container(
                 padding: EdgeInsets.only(left: 0, top: 10),
                 alignment: Alignment.topLeft,
-                child: FaIcon(
-                  FontAwesomeIcons.plus,
-                  color: HexColor("c299c0"),
+                child: Icon(
+                  Icons.add,
+                  size: 30,
                 ),
               ),
             ],

@@ -38,9 +38,22 @@ class _WillBeOverSoonState extends State<WillBeOverSoon> {
               //Streamden her yeni veri aktığında aşağıdaki metodu çalıştırır.
               builder: (context, asyncSnapshot) {
                 if (asyncSnapshot.connectionState == ConnectionState.waiting) {
-                  return CircularProgressIndicator();
+                  // WidgetsBinding.instance!.addPostFrameCallback((_) {
+                  //   showDialog(
+                  //       context: context,
+                  //       builder: (context) {
+                  //         return AlertDialog(
+                  //           title: new Text("Veriler yükleniyor..."),
+                  //           content: SizedBox(
+                  //               height: 55,
+                  //               child:
+                  //                   Center(child: CircularProgressIndicator())),
+                  //         );
+                  //       });
+                  // });
                 }
                 if (asyncSnapshot.data != null) {
+                  // Navigator.of(context).pop();
                   List<DocumentSnapshot>? listOfDocuments =
                       asyncSnapshot.data!.docs;
                   return ListView.builder(

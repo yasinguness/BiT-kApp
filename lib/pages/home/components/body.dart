@@ -1,4 +1,4 @@
-import 'package:bitik_mobile_app/pages/home/components/app_bar.dart';
+import 'package:bitik_mobile_app/common_widgets/app_bar.dart';
 import 'package:bitik_mobile_app/pages/home/components/categories.dart';
 import 'package:bitik_mobile_app/pages/home/components/discount_banner.dart';
 import 'package:bitik_mobile_app/pages/home/components/over_soon_products.dart';

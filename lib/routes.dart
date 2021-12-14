@@ -1,4 +1,4 @@
-import 'package:bitik_mobile_app/pages/account_page.dart';
+import 'package:bitik_mobile_app/pages/account/page/account_page.dart';
 import 'package:bitik_mobile_app/pages/home/page/home_page.dart';
 import 'package:flutter/material.dart';
 

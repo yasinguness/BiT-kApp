@@ -1,10 +1,11 @@
 import 'package:bitik_mobile_app/common_widgets/custom_bottom_navbar/custom_bnb_tab.dart';
-import 'package:bitik_mobile_app/pages/account_page.dart';
+import 'package:bitik_mobile_app/pages/account/page/account_page.dart';
 import 'package:bitik_mobile_app/pages/home/page/home_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:page_transition/page_transition.dart';
 
 // class CustomBNB extends StatefulWidget {
 //   CustomBNB({Key? key}) : super(key: key);
@@ -65,7 +66,7 @@ import 'package:hexcolor/hexcolor.dart';
 //   }
 // }
 
-class CustomBottomNavBar extends StatelessWidget {
+class CustomBottomNavBar extends StatefulWidget {
   const CustomBottomNavBar({
     Key? key,
     required this.selectedMenu,
@@ -74,10 +75,44 @@ class CustomBottomNavBar extends StatelessWidget {
   final AllTabs selectedMenu;
 
   @override
+  State<CustomBottomNavBar> createState() => _CustomBottomNavBarState();
+}
+
+class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
+  int selectedIndex = 0;
+  void onTapNavbarTab(int selectedIndex) {
+    setState(() {
+      this.selectedIndex = selectedIndex;
+    });
+    switch (this.selectedIndex) {
+      case 0:
+        {
+          Navigator.of(context).push(PageTransition(
+              child: HomePage(),
+              type: PageTransitionType.scale,
+              alignment: Alignment.center,
+              duration: Duration.zero));
+        }
+        break;
+      case 1:
+        {}
+        break;
+      case 2:
+        {
+          Navigator.of(context).push(PageTransition(
+              child: AccountPage(),
+              type: PageTransitionType.scale,
+              alignment: Alignment.center,
+              duration: Duration.zero));
+        }
+        break;
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     final Color inActiveIconColor = Color(0xFFB6B6B6);
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 8),
       decoration: BoxDecoration(
         color: Colors.white,
         // boxShadow: [
@@ -89,32 +124,31 @@ class CustomBottomNavBar extends StatelessWidget {
       ),
       child: SafeArea(
           top: false,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              IconButton(
+          child: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            items: [
+              BottomNavigationBarItem(
+                label: "",
                 icon: Icon(Icons.home,
-                    color: AllTabs.Home == selectedMenu
+                    color: AllTabs.Home == widget.selectedMenu
                         ? HexColor("e6d1e4")
                         : Colors.black54),
-                onPressed: () => Navigator.of(context)
-                    .push(CupertinoPageRoute(builder: (context) => HomePage())),
               ),
-              IconButton(
+              BottomNavigationBarItem(
+                label: "",
                 icon: Icon(Icons.card_giftcard, color: Colors.black54),
-                onPressed: () {},
               ),
-              IconButton(
+              BottomNavigationBarItem(
+                label: "",
                 icon: Icon(Icons.person,
-                    color: AllTabs.Account == selectedMenu
+                    color: AllTabs.Account == widget.selectedMenu
                         ? HexColor("e6d1e4")
                         : Colors.black54),
-                onPressed: () {
-                  Navigator.of(context).push(
-                      CupertinoPageRoute(builder: (context) => AccountPage()));
-                },
               ),
+              // onPressed: () => Navigator.of(context)
+              //     .push(CupertinoPageRoute(builder: (context) => HomePage())),
             ],
+            onTap: onTapNavbarTab,
           )),
     );
   }
