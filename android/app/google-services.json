@@ -22,6 +22,22 @@
           }
         },
         {
+          "client_id": "782052802701-l9lcc70aq7lmmij7p58rkor43s0ni2pe.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bitik_mobile_app",
+            "certificate_hash": "716a25feabdacf1af8afbe7899139eeefb6d7995"
+          }
+        },
+        {
+          "client_id": "782052802701-n291hs52tui17r1lb6pm807fufbbvjn5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bitik_mobile_app",
+            "certificate_hash": "8fbf45c1d36650bd5d459cc5d3d266bbc58bd691"
+          }
+        },
+        {
           "client_id": "782052802701-t5b4l5g5ga66vl4nci7r7ql8bs3p08lp.apps.googleusercontent.com",
           "client_type": 3
         }
