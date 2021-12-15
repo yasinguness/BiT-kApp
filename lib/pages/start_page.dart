@@ -35,7 +35,7 @@ class StartPage extends StatelessWidget {
                     height: size.height*0.05,
                   ),
                   Image.asset(
-                    "assest/splash_1.png",
+                    "lib/assets/images/splash_1.png",
                     height: 265,
                     width: 235,
                   ),

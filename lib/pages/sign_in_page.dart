@@ -223,7 +223,7 @@ class _SignInPage extends State<SignInPage> {
                           children: [
                             IconButton(
                                 onPressed: _misafirgirisi,
-                                icon: Image.asset('assest/icons8-facebook-30.png'),
+                                icon: Image.asset('lib/assets/icons/icons8-facebook-30.png'),
                               iconSize: 50,)
                           ],
                         ),
@@ -234,7 +234,7 @@ class _SignInPage extends State<SignInPage> {
                           //mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             IconButton(
-                              icon: Image.asset('assest/icons8-google-30.png'),
+                              icon: Image.asset('lib/assets/icons/icons8-google-30.png'),
                               iconSize: 50,
                               onPressed: () {
                                //Navigator.pushNamed(context, "/signUpDetailsPage");

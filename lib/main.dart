@@ -8,14 +8,14 @@ import 'package:bitik_mobile_app/routes.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-void main() => runApp(MyApp());
-class MyApp extends StatelessWidget {
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   FirebaseFirestore firestore = FirebaseFirestore.instance;
-  runApp(MyApp());
+  runApp(const MyApp());
 }
+
+class MyApp extends StatelessWidget {
 const MyApp({Key? key}) : super(key: key);
 
   @override
@@ -34,3 +34,4 @@ const MyApp({Key? key}) : super(key: key);
     );
   }
 }
+
