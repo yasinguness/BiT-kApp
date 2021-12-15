@@ -1,41 +1,57 @@
 {
   "project_info": {
-    "project_number": "829851188554",
-    "project_id": "bitikmobileapp",
-    "storage_bucket": "bitikmobileapp.appspot.com"
+    "project_number": "375967227731",
+    "project_id": "bitik-791d2",
+    "storage_bucket": "bitik-791d2.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:829851188554:android:af6cd9b5e2b124bc5115b3",
+        "mobilesdk_app_id": "1:375967227731:android:d81556a7797b28e9034ba6",
         "android_client_info": {
           "package_name": "com.example.bitik_mobile_app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "829851188554-2m41kthb74p2k8ibohe90h9m5okmc6hk.apps.googleusercontent.com",
+          "client_id": "375967227731-3cepri9961kh7blrueko5p9dfg2c021h.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.bitik_mobile_app",
-            "certificate_hash": "2d8d82af29a8bad6dfbc9a190a2c7a4a2540b710"
+            "certificate_hash": "716a25feabdacf1af8afbe7899139eeefb6d7995"
           }
         },
         {
-          "client_id": "829851188554-jg59gae4b3eppb01unhsfcm35oc67s1i.apps.googleusercontent.com",
+          "client_id": "375967227731-ureiii12kpmjq5osurip7l0csbmsvr3p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bitik_mobile_app",
+            "certificate_hash": "8fbf45c1d36650bd5d459cc5d3d266bbc58bd691"
+          }
+        },
+        {
+          "client_id": "375967227731-vur3n674tpr6o4caun8crkvcnqmgqreh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bitik_mobile_app",
+            "certificate_hash": "d7dd705a152078c9a95005eec00ba3176a91c16c"
+          }
+        },
+        {
+          "client_id": "375967227731-ghl1ctgamhsc7vpsookkgvtp6lgedbcm.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA7JMB9ck23liZI3FE1WXMWKCFr7hvhnRo"
+          "current_key": "AIzaSyBKEqIZ9ndLxaYFQheBJ02aQ8wbG-KZacU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "829851188554-jg59gae4b3eppb01unhsfcm35oc67s1i.apps.googleusercontent.com",
+              "client_id": "375967227731-ghl1ctgamhsc7vpsookkgvtp6lgedbcm.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
