@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "829851188554",
+    "project_id": "bitikmobileapp",
+    "storage_bucket": "bitikmobileapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:829851188554:android:af6cd9b5e2b124bc5115b3",
+        "android_client_info": {
+          "package_name": "com.example.bitik_mobile_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "829851188554-2m41kthb74p2k8ibohe90h9m5okmc6hk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bitik_mobile_app",
+            "certificate_hash": "2d8d82af29a8bad6dfbc9a190a2c7a4a2540b710"
+          }
+        },
+        {
+          "client_id": "829851188554-jg59gae4b3eppb01unhsfcm35oc67s1i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7JMB9ck23liZI3FE1WXMWKCFr7hvhnRo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "829851188554-jg59gae4b3eppb01unhsfcm35oc67s1i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
