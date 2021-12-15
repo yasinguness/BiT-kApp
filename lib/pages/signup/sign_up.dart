@@ -1,4 +1,5 @@
 import 'package:bitik_mobile_app/models/user_model.dart';
+import 'package:bitik_mobile_app/pages/home/page/home_page.dart';
 import 'package:bitik_mobile_app/pages/login/login.dart';
 import 'package:bitik_mobile_app/pages/phone_auth_page.dart';
 import 'package:bitik_mobile_app/services/firebase_auth_service.dart';
@@ -36,6 +37,7 @@ class _SignUpPageState extends State<SignUpPage> {
   final _userViewModel=Provider.of<UserViewModel>(context,listen: false);
   
      await _userViewModel.createUser(_email!, _password!);
+     await Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => HomePage(),));
 
   }
     return Scaffold(
