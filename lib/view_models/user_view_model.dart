@@ -74,8 +74,14 @@ class UserViewModel with ChangeNotifier implements AuthBase{
   }
 
   @override
-  Future<void> phoneSignIn( ) async {
-    await _userRepository.phoneSignIn();
-    
+  Future<bool> phoneSignIn( String number) async {
+  try{
+      await _userRepository.phoneSignIn(number);
+      return true;
+  }    
+  catch(e){
+    print('View modeldeki phone hatasi'+e.toString());
+    return false;
+  }
   }
 }

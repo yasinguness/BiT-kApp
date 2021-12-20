@@ -1,5 +1,6 @@
 import 'package:bitik_mobile_app/models/entity.dart';
 import 'package:bitik_mobile_app/models/product.dart';
+import 'package:bitik_mobile_app/models/user_model.dart';
 import 'package:bitik_mobile_app/services/product_db_base.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -16,24 +17,24 @@ class ProductRepository implements ProductDBBase {
       isSoon: true,
       rating: 2.7);
   @override
-  Future<void> Create() async {
-    CollectionReference product =
-        FirebaseFirestore.instance.collection('products');
-    product
-        .add({
-          "colors": productModel.colors,
-          "title": productModel.title,
-          "price": productModel.price,
-          "description": productModel.description,
-          "images": productModel.images,
-          "isPopular": productModel.isPopular,
-          "isSoon": productModel.isSoon,
-          "rating": productModel.rating
-        })
-        .then((value) => debugPrint(
-            "${productModel.title} ürünü veri tabanına eklendi eklendi."))
-        .catchError((error) => print("Ürünü eklerken bir hata oluştu: $error"));
-  }
+  // Future<void> Create() async {
+  //   CollectionReference product =
+  //       FirebaseFirestore.instance.collection('products');
+  //   product
+  //       .add({
+  //         "colors": productModel.colors,
+  //         "title": productModel.title,
+  //         "price": productModel.price,
+  //         "description": productModel.description,
+  //         "images": productModel.images,
+  //         "isPopular": productModel.isPopular,
+  //         "isSoon": productModel.isSoon,
+  //         "rating": productModel.rating
+  //       })
+  //       .then((value) => debugPrint(
+  //           "${productModel.title} ürünü veri tabanına eklendi eklendi."))
+  //       .catchError((error) => print("Ürünü eklerken bir hata oluştu: $error"));
+  // }
 
   @override
   Future<void> Delete() async {
@@ -89,6 +90,12 @@ class ProductRepository implements ProductDBBase {
   @override
   Future<void> Update() async {
     // TODO: implement Update
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<void> Create(UserModel model) {
+    // TODO: implement Create
     throw UnimplementedError();
   }
 }

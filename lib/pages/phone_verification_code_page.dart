@@ -1,11 +1,25 @@
+import 'package:bitik_mobile_app/services/firebase_auth_service.dart';
+import 'package:bitik_mobile_app/view_models/user_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+import 'package:provider/provider.dart';
 
 class PhoneVerificationCodePage extends StatelessWidget {
   const PhoneVerificationCodePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    
+    Future<bool> _signOut(BuildContext context) async {
+    final _userModel=Provider.of<UserViewModel>(context,listen: false);
+    bool result= await _userModel.signOut();
+    return result;
+ }
+
+  void signInWithPhoneNumber() async{
+    final _fireauth = Provider.of<FirebaseAuthService>(context);
+    _fireauth.signInWithPhoneNumber();
+  }
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
@@ -88,7 +102,8 @@ class PhoneVerificationCodePage extends StatelessWidget {
                             MaterialStateProperty.all(Color(0xFF6F35A5)),
                       ),
                       onPressed: () {
-                        Navigator.pushNamed(context, "/homePage");
+                        signInWithPhoneNumber();
+                        //Navigator.pushNamed(context, "/homePage");
                       },
                       child: Text(
                         'Doğrula',

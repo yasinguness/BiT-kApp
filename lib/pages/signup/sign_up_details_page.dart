@@ -1,6 +1,9 @@
-import 'package:bitik_mobile_app/pages/sign_in_page.dart';
+import 'package:bitik_mobile_app/pages/login/sign_in_page.dart';
+import 'package:bitik_mobile_app/view_models/user_view_model.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
 class SignUpDetailsPage extends StatefulWidget {
   const SignUpDetailsPage({Key? key}) : super(key: key);
@@ -14,9 +17,27 @@ class _SignUpDetailsPage extends State<SignUpDetailsPage> {
 
   @override
   Widget build(BuildContext context) {
+    
+      final _formkey= GlobalKey<FormState>();
+
+      TextEditingController _phoneNumber = TextEditingController();
+        void _phoneSign(BuildContext context, TextEditingController phoneNumber)async {
+          _formkey.currentState!.save();
+          final _userModel = Provider.of<UserViewModel>(context, listen: false);
+
+          if(_userModel.phoneSignIn(phoneNumber.text)==true){
+            await Navigator.pushNamed(context, "/phoneVerificaitonCodePage");
+          }
+          else{
+            print('Telefon numarasi gönderilemedi');
+          }
+        }
+
+
      Size size = MediaQuery.of(context)
         .size;
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.white,
@@ -32,9 +53,9 @@ class _SignUpDetailsPage extends State<SignUpDetailsPage> {
               image: AssetImage("assest/signup.png"), fit: BoxFit.cover)), */
         child: SingleChildScrollView(
             child: Container(
-          padding: EdgeInsets.fromLTRB(20, 15, 20, 20),
-          decoration: new BoxDecoration(color: Colors.white),
-          child: Column(
+                    padding: EdgeInsets.fromLTRB(20, 15, 20, 20),
+                    decoration: new BoxDecoration(color: Colors.white),
+                    child: Column(
             //mainAxisSize: MainAxisSize.max,
             children: [
                new Text("Profilinizi Tamamlayın",
@@ -50,6 +71,7 @@ class _SignUpDetailsPage extends State<SignUpDetailsPage> {
                 height: size.height*0.05,
               ),
               TextFormField(
+                
                     validator: (value) {
                       if (value!.isEmpty) {
                         print("Lütfen adınızı giriniz!");
@@ -112,13 +134,20 @@ class _SignUpDetailsPage extends State<SignUpDetailsPage> {
                 height: size.height*0.05,
               ),
              TextFormField(
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        print("Lütfen telefon numaranızı giriniz!");
-                      }
-                      return null;
+                    
+                    keyboardType: TextInputType.phone,
+                    onChanged: (value) => {},
+                    // validator: (value) {
+                    //   if (value!.isEmpty) {
+                    //     print("Lütfen telefon numaranızı giriniz!");
+                    //   }
+                    //   return null;
+                    // },
+                    onSaved: (String? number){
+                      _phoneNumber.text=number!;
                     },
                     decoration: InputDecoration(
+                      
                       hintText: "Telefon numaranızı girin",
                       hintStyle: TextStyle(fontSize: 16),
                       labelText: "Telefon Numarası",
@@ -227,7 +256,8 @@ class _SignUpDetailsPage extends State<SignUpDetailsPage> {
                         backgroundColor:
                             MaterialStateProperty.all(Color(0xFF6F35A5)),
                       ),
-                      onPressed: () {
+                      onPressed: () async {
+                        //_phoneSign(context,_phoneNumber);
                         Navigator.pushNamed(context, "/phoneVerificaitonCodePage");
                       },
                       child: Text(
@@ -237,10 +267,14 @@ class _SignUpDetailsPage extends State<SignUpDetailsPage> {
                     ),
                   ),
             ],
-          ),
-        )),
+                    ),
+                  )),
       ),
     );
   }
+
+
+
+ 
 }
 

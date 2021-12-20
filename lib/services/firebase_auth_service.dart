@@ -57,7 +57,7 @@ class FirebaseAuthService implements AuthBase{
     if(user==null){
       return null;
     }
-    return UserModel(UserID:user.uid.toString(),email: user.email!);
+    return UserModel(UserID:user.uid.toString());
 
   }
 
@@ -87,8 +87,15 @@ class FirebaseAuthService implements AuthBase{
   }
 
   @override
-  Future<void> phoneSignIn() async {
-    await _firebaseAuth.verifyPhoneNumber(phoneNumber: _phoneNumber.text, verificationCompleted: onVerificationCompleted, verificationFailed: onVerificationFailed, codeSent: _onCodeSent, codeAutoRetrievalTimeout: _onCodeTimeout);
+  Future<bool> phoneSignIn(String number) async {
+    try{
+      await _firebaseAuth.verifyPhoneNumber(phoneNumber: number, verificationCompleted: onVerificationCompleted, verificationFailed: onVerificationFailed, codeSent: _onCodeSent, codeAutoRetrievalTimeout: _onCodeTimeout);
+      return true;
+    }
+    catch(e){
+      print('Telefon giriş hatasi'+e.toString());
+      return false;
+    }
   }
 
 

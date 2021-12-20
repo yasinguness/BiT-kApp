@@ -1,8 +1,7 @@
 import 'package:bitik_mobile_app/pages/home/components/search_field.dart';
 import 'package:bitik_mobile_app/size_config.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:hexcolor/hexcolor.dart';
+
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({
