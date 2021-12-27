@@ -15,25 +15,25 @@ class ProfileMenu extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: TextButton(
         style: TextButton.styleFrom(
-          primary: HexColor("c299c0"),
+          primary: HexColor("66806A"),
           padding: EdgeInsets.all(20),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-          backgroundColor: Color(0xFFF5F6F9),
+          backgroundColor: Color(0xFFF5F6F9).withOpacity(0.01),
         ),
         onPressed: press,
         child: Row(
           children: [
             SvgPicture.asset(
               icon,
-              color: HexColor("c299c0"),
+              color: Colors.white.withOpacity(0.6),
               width: 22,
             ),
             SizedBox(
               width: 20,
             ),
-            Expanded(child: Text(text)),
-            Icon(Icons.arrow_forward_ios)
+            Expanded(child: Text(text, style: TextStyle(color: Colors.white.withOpacity(0.8)),)),
+            Icon(Icons.arrow_forward_ios, color: HexColor("2D4263"),)
           ],
         ),
       ),

@@ -19,6 +19,7 @@ class HomePage extends StatelessWidget {
     return WillPopScope(
       onWillPop: () async => !await navigatorKey.currentState!.maybePop(),
       child: Scaffold(
+        backgroundColor: HexColor("#121212"),
         body: Body(),
         bottomNavigationBar: CustomBottomNavBar(
           selectedMenu: AllTabs.Home,

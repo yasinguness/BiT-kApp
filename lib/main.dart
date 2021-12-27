@@ -17,7 +17,6 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-  
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +24,9 @@ class MyApp extends StatelessWidget {
       create: (context) => UserViewModel(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        // initialRoute: HomePage.routeName,
-        // routes: routes,
-        home: LogIn(),
+        initialRoute: HomePage.routeName,
+        routes: routes,
+        home: HomePage(),
       ),
     );
   }

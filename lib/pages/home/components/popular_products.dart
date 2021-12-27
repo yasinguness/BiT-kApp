@@ -29,65 +29,38 @@ class _PopularProductsState extends State<PopularProducts> {
     //     FirebaseFirestore.instance.collection('products');
     // QuerySnapshot querySnapshot = await products.get();
     SizeConfig().init(context);
-    prod.Create();
+    // prod.Create();
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: getProportionateScreenWidth(20),
-          ),
-          child: SectionTitle(title: "Popüler Ürünler", press: () {}),
-        ),
+            padding: EdgeInsets.symmetric(
+              horizontal: getProportionateScreenWidth(20),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Popüler Ürünler",
+                  style: TextStyle(
+                      fontSize: 20, color: Colors.white.withOpacity(0.8)),
+                ),
+                Text(
+                  "Daha Fazla",
+                  style: TextStyle(
+                      fontSize: 13, color: Colors.white.withOpacity(0.6)),
+                )
+              ],
+            )),
         SizedBox(
-          height: 250,
-          width: 450,
+          height: getProportionateScreenHeight(230),
+          width: getProportionateScreenWidth(350),
           child: StreamBuilder<QuerySnapshot>(
               //Neyi dinlediğimiz bilgisi
               stream: productRef.snapshots(),
               //Streamden her yeni veri aktığında aşağıdaki metodu çalıştırır.
               builder: (context, asyncSnapshot) {
-                if (asyncSnapshot.connectionState == ConnectionState.waiting) {
+                if (!asyncSnapshot.hasData) {
                   WidgetsBinding.instance!.addPostFrameCallback((_) {
-                    // showDialog(
-                    //     barrierDismissible: false,
-                    //     context: context,
-                    //     builder: (context) {
-                    //       return SizedBox(
-                    //         height: SizeConfig.screenHeight,
-                    //         width: SizeConfig.screenWidth,
-                    //         child: AlertDialog(
-                    //           insetPadding: EdgeInsets.all(0),
-                    //           backgroundColor: Colors.transparent,
-                    //           title: new Text("Veriler yükleniyor..."),
-                    //           content:
-                    //               Center(child: CircularProgressIndicator()),
-                    //         ),
-                    //       );
-                    //     });
-                    // showGeneralDialog(
-                    //   barrierDismissible: false,
-                    //     context: context,
-                    //     builder: (context) {
-                    //       return Dialog(
-                    //           backgroundColor: Colors.black12,
-                    //           insetPadding: EdgeInsets.all(10),
-                    //           child: Stack(
-                    //             alignment: Alignment.center,
-                    //             children: <Widget>[
-                    //               Container(
-                    //                   width: double.infinity,
-                    //                   height: 200,
-                    //                   decoration: BoxDecoration(
-                    //                     borderRadius: BorderRadius.circular(15),
-                    //                   ),
-                    //                   padding:
-                    //                       EdgeInsets.fromLTRB(20, 50, 20, 20),
-                    //                   child: Center(
-                    //                       child: CircularProgressIndicator())),
-                    //             ],
-                    //           ));
-                    //     });
-
                     showGeneralDialog(
                         context: context,
                         barrierDismissible: false,
@@ -110,7 +83,7 @@ class _PopularProductsState extends State<PopularProducts> {
                   });
                 }
                 if (asyncSnapshot.data != null) {
-                  Future.delayed(const Duration(milliseconds: 1000), () {
+                  WidgetsBinding.instance!.addPostFrameCallback((_) {
                     Navigator.of(context).pop();
                   });
                   List<DocumentSnapshot>? listOfDocuments =
@@ -123,6 +96,7 @@ class _PopularProductsState extends State<PopularProducts> {
                       if (listOfDocuments[index]["isPopular"].toString() ==
                           "true") {
                         return ProductCard(
+                            productId: listOfDocuments[index].id,
                             product: Product(
                                 colors: listOfDocuments[index]["colors"],
                                 description: listOfDocuments[index]
@@ -141,6 +115,49 @@ class _PopularProductsState extends State<PopularProducts> {
                 } else {
                   return Container();
                 }
+                ;
+                // if (!asyncSnapshot.hasData) {
+                // showDialog(
+                //     barrierDismissible: false,
+                //     context: context,
+                //     builder: (context) {
+                //       return SizedBox(
+                //         height: SizeConfig.screenHeight,
+                //         width: SizeConfig.screenWidth,
+                //         child: AlertDialog(
+                //           insetPadding: EdgeInsets.all(0),
+                //           backgroundColor: Colors.transparent,
+                //           title: new Text("Veriler yükleniyor..."),
+                //           content:
+                //               Center(child: CircularProgressIndicator()),
+                //         ),
+                //       );
+                //     });
+                // showGeneralDialog(
+                //   barrierDismissible: false,
+                //     context: context,
+                //     builder: (context) {
+                //       return Dialog(
+                //           backgroundColor: Colors.black12,
+                //           insetPadding: EdgeInsets.all(10),
+                //           child: Stack(
+                //             alignment: Alignment.center,
+                //             children: <Widget>[
+                //               Container(
+                //                   width: double.infinity,
+                //                   height: 200,
+                //                   decoration: BoxDecoration(
+                //                     borderRadius: BorderRadius.circular(15),
+                //                   ),
+                //                   padding:
+                //                       EdgeInsets.fromLTRB(20, 50, 20, 20),
+                //                   child: Center(
+                //                       child: CircularProgressIndicator())),
+                //             ],
+                //           ));
+                //     });
+
+                // }
               }),
         ),
       ],

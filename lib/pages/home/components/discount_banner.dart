@@ -18,18 +18,17 @@ class DiscountBanner extends StatelessWidget {
         vertical: getProportionateScreenWidth(15),
       ),
       decoration: BoxDecoration(
-        color: HexColor("#c299c0"),
+        color: HexColor("#2D4263"),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Text.rich(
         TextSpan(
           style: TextStyle(color: Colors.white),
           children: [
-            TextSpan(text: "Duyurular\n"),
             TextSpan(
-              text: "Duyurular burada olacak",
+              text: "Çekiliş sonuçlarına ulaşmak için tıklayınız.",
               style: TextStyle(
-                fontSize: getProportionateScreenWidth(24),
+                fontSize: getProportionateScreenWidth(16),
                 fontWeight: FontWeight.bold,
               ),
             ),

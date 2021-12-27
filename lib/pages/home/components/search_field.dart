@@ -1,5 +1,6 @@
 import 'package:bitik_mobile_app/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class SearchField extends StatelessWidget {
   const SearchField({
@@ -13,12 +14,14 @@ class SearchField extends StatelessWidget {
       margin: EdgeInsets.only(top: 4),
       width: SizeConfig.screenWidth * 0.7,
       decoration: BoxDecoration(
-        color: Colors.grey[200],
+
+        color: Colors.white.withOpacity(0.05),
         borderRadius: BorderRadius.circular(27),
       ),
       child: TextField(
         onChanged: (value) => print(value),
         decoration: InputDecoration(
+          hintStyle: TextStyle(color: Colors.white.withOpacity(0.4)),
             contentPadding: EdgeInsets.symmetric(
                 horizontal: getProportionateScreenWidth(20),
                 vertical: getProportionateScreenWidth(13)),
