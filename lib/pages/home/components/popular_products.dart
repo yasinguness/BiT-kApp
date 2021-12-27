@@ -9,7 +9,6 @@ import 'package:bitik_mobile_app/size_config.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:provider/provider.dart';
 
 class PopularProducts extends StatefulWidget {
@@ -30,7 +29,7 @@ class _PopularProductsState extends State<PopularProducts> {
     //     FirebaseFirestore.instance.collection('products');
     // QuerySnapshot querySnapshot = await products.get();
     SizeConfig().init(context);
-    // prod.Create();
+    prod.Create();
     return Column(
       children: [
         Padding(
