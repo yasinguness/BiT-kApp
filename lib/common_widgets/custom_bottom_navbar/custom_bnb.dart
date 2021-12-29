@@ -1,6 +1,7 @@
 import 'package:bitik_mobile_app/common_widgets/custom_bottom_navbar/custom_bnb_tab.dart';
 import 'package:bitik_mobile_app/pages/account/page/account_page.dart';
 import 'package:bitik_mobile_app/pages/home/page/home_page.dart';
+import 'package:bitik_mobile_app/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -87,11 +88,9 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
     switch (this.selectedIndex) {
       case 0:
         {
-          Navigator.of(context).push(PageTransition(
-              child: HomePage(),
-              type: PageTransitionType.scale,
-              alignment: Alignment.center,
-              duration: Duration.zero));
+          Navigator.of(context).push(CupertinoPageRoute(
+            builder: (builder) => HomePage(),
+          ));
         }
         break;
       case 1:
@@ -99,11 +98,9 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
         break;
       case 2:
         {
-          Navigator.of(context).push(PageTransition(
-              child: AccountPage(),
-              type: PageTransitionType.scale,
-              alignment: Alignment.center,
-              duration: Duration.zero));
+          Navigator.of(context).push(CupertinoPageRoute(
+            builder: (builder) => AccountPage(),
+          ));
         }
         break;
     }
@@ -115,6 +112,10 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
+
+        boxShadow: [
+          BoxShadow(color: Colors.black38, spreadRadius: 0, blurRadius: 20),
+        ],
         // boxShadow: [
         //   BoxShadow(
         //     offset: Offset(0, -15),
@@ -124,31 +125,40 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
       ),
       child: SafeArea(
           top: false,
-          child: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            items: [
-              BottomNavigationBarItem(
-                label: "",
-                icon: Icon(Icons.home,
-                    color: AllTabs.Home == widget.selectedMenu
-                        ? HexColor("e6d1e4")
-                        : Colors.black54),
-              ),
-              BottomNavigationBarItem(
-                label: "",
-                icon: Icon(Icons.card_giftcard, color: Colors.black54),
-              ),
-              BottomNavigationBarItem(
-                label: "",
-                icon: Icon(Icons.person,
-                    color: AllTabs.Account == widget.selectedMenu
-                        ? HexColor("e6d1e4")
-                        : Colors.black54),
-              ),
-              // onPressed: () => Navigator.of(context)
-              //     .push(CupertinoPageRoute(builder: (context) => HomePage())),
-            ],
-            onTap: onTapNavbarTab,
+          child: ClipRRect(
+            // borderRadius: BorderRadius.only(
+            //   topLeft: Radius.circular(30),
+            //   topRight: Radius.circular(30),
+            // ),
+            child: BottomNavigationBar(
+              backgroundColor: HexColor("#121212"),
+              showSelectedLabels: false,
+              showUnselectedLabels: false,
+              type: BottomNavigationBarType.fixed,
+              items: [
+                BottomNavigationBarItem(
+                  label: "",
+                  icon: Icon(Icons.home,
+                      color: AllTabs.Home == widget.selectedMenu
+                          ? HexColor("2D4263")
+                          : Colors.black54),
+                ),
+                BottomNavigationBarItem(
+                  label: "",
+                  icon: Icon(Icons.card_giftcard, color: Colors.black54),
+                ),
+                BottomNavigationBarItem(
+                  label: "",
+                  icon: Icon(Icons.person,
+                      color: AllTabs.Account == widget.selectedMenu
+                          ? HexColor("2D4263")
+                          : Colors.black54),
+                ),
+                // onPressed: () => Navigator.of(context)
+                //     .push(CupertinoPageRoute(builder: (context) => HomePage())),
+              ],
+              onTap: onTapNavbarTab,
+            ),
           )),
     );
   }

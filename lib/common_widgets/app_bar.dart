@@ -23,7 +23,7 @@ class HomeHeader extends StatelessWidget {
                   padding: EdgeInsets.only(top: 6),
                   child: Text(
                     'BiTık',
-                    style: TextStyle(fontSize: 30),
+                    style: TextStyle(fontSize: 30, color: Colors.white),
                   ),
                 ),
               ),
@@ -39,8 +39,9 @@ class HomeHeader extends StatelessWidget {
                 padding: EdgeInsets.only(left: 0, top: 10),
                 alignment: Alignment.topLeft,
                 child: Icon(
-                  Icons.add,
+                  Icons.notifications,
                   size: 30,
+                  color: Colors.white.withOpacity(0.8),
                 ),
               ),
             ],

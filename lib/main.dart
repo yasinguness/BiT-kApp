@@ -36,9 +36,7 @@ const MyApp({Key? key}) : super(key: key);
           "/phoneVerificaitonCodePage": (context) => PhoneVerificationCodePage(),
           "/homePage": (context) => HomePage(),
         },
-        
       ),
     );
   }
 }
-

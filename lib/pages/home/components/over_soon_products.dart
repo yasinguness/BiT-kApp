@@ -27,11 +27,17 @@ class _WillBeOverSoonState extends State<WillBeOverSoon> {
           padding: EdgeInsets.symmetric(
             horizontal: getProportionateScreenWidth(20),
           ),
-          child: SectionTitle(title: "Yakında Bitecek", press: () {}),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("Yakında Bitecek", style: TextStyle(fontSize: 20, color: Colors.white.withOpacity(0.8)),),
+              Text("Daha Fazla", style: TextStyle(fontSize: 13, color: Colors.white.withOpacity(0.6)),)
+            ],
+          )
         ),
         SizedBox(
-          height: 250,
-          width: 450,
+          height: getProportionateScreenHeight(230),
+          width: getProportionateScreenWidth(350),
           child: StreamBuilder<QuerySnapshot>(
               //Neyi dinlediğimiz bilgisi
               stream: productRef.snapshots(),
@@ -64,6 +70,7 @@ class _WillBeOverSoonState extends State<WillBeOverSoon> {
                       if (listOfDocuments[index]["isPopular"].toString() ==
                           "true") {
                         return ProductCard(
+                          productId: listOfDocuments[index].id,
                             product: Product(
                                 colors: listOfDocuments[index]["colors"],
                                 description: listOfDocuments[index]

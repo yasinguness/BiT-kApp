@@ -15,19 +15,20 @@ class SignInPage extends StatefulWidget {
   State<SignInPage> createState() => _SignInPage();
 }
 
-
 class _SignInPage extends State<SignInPage> {
- static final _formkey= GlobalKey<FormState>();
+  static final _formkey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-     String? _email, _password;
- 
+    String? _email, _password;
+
     void _logInGoogle(BuildContext context) async {
       final _userModel = Provider.of<UserViewModel>(context, listen: false);
       await _userModel.signInGoogle().then((uid) => {
-            Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (context) => PhoneVerificationCodePage())),
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => PhoneVerificationCodePage())),
           });
 
       // if(_logInGoogle(context)==true){
@@ -45,7 +46,7 @@ class _SignInPage extends State<SignInPage> {
       UserModel? _user =
           await _usermodel.signInEmailAndPassword(_email!, _password!);
       print('Oturum açan user id:' + _user!.UserID.toString());
-      //await Navigator.of(context).push(MaterialPageRoute(builder: (context)=>HomePage()));
+      await Navigator.pushNamed(context, "/homePage");
     }
 
     Size size = MediaQuery.of(context)
@@ -88,56 +89,55 @@ class _SignInPage extends State<SignInPage> {
                             fontWeight: FontWeight.bold,
                             //fontStyle: FontStyle.normal,
                           )),
-                      
                       SizedBox(
                         height: size.height * 0.1,
                       ),
-        
                       Column(
-                        children: [TextFormField(
-                          
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              print("Lütfen e-mail adresinizi giriniz!");
-                            }
-                            return null;
-                          },
-                          onSaved: (String? email) {
-                            _email = email;
-                          },
-                          decoration: InputDecoration(
-                            hintText: "E-mail adresinizi girin",
-                            labelText: "E-mail",
-                            labelStyle:
-                                TextStyle(color: Colors.black54, fontSize: 18),
-                            floatingLabelBehavior: FloatingLabelBehavior.always,
-                            contentPadding:
-                                EdgeInsets.symmetric(horizontal: 35, vertical: 20),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(28.0),
-                              borderSide: BorderSide(color: Colors.white),
-                              gapPadding: 10,
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(28.0),
-                              borderSide: BorderSide(color: Colors.black26),
-                              gapPadding: 10,
+                        children: [
+                          TextFormField(
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                print("Lütfen e-mail adresinizi giriniz!");
+                              }
+                              return null;
+                            },
+                            onChanged: (String? email) {
+                              _email = email;
+                            },
+                            decoration: InputDecoration(
+                              hintText: "E-mail adresinizi girin",
+                              labelText: "E-mail",
+                              labelStyle: TextStyle(
+                                  color: Colors.black54, fontSize: 18),
+                              floatingLabelBehavior:
+                                  FloatingLabelBehavior.always,
+                              contentPadding: EdgeInsets.symmetric(
+                                  horizontal: 35, vertical: 20),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(28.0),
+                                borderSide: BorderSide(color: Colors.white),
+                                gapPadding: 10,
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(28.0),
+                                borderSide: BorderSide(color: Colors.black26),
+                                gapPadding: 10,
+                              ),
                             ),
                           ),
-                        ),],
+                        ],
                       ),
                       SizedBox(
                         height: size.height * 0.03,
                       ),
                       TextFormField(
-                        
                         validator: (value) {
                           if (value!.isEmpty) {
                             print("Lütfen şifrenizi giriniz!");
                           }
                           return null;
                         },
-                        onSaved: (String? sifre) {
+                        onChanged: (String? sifre) {
                           _password = sifre;
                         },
                         decoration: InputDecoration(
@@ -146,8 +146,8 @@ class _SignInPage extends State<SignInPage> {
                           labelStyle:
                               TextStyle(color: Colors.black54, fontSize: 18),
                           floatingLabelBehavior: FloatingLabelBehavior.always,
-                          contentPadding:
-                              EdgeInsets.symmetric(horizontal: 35, vertical: 20),
+                          contentPadding: EdgeInsets.symmetric(
+                              horizontal: 35, vertical: 20),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(28.0),
                             borderSide: BorderSide(color: Colors.white),
@@ -200,18 +200,20 @@ class _SignInPage extends State<SignInPage> {
                       Container(
                         height: size.height * 0.08,
                         width: size.width * 0.9,
-                        margin: EdgeInsets.fromLTRB(0, size.height * 0.01, 0, 0),
+                        margin:
+                            EdgeInsets.fromLTRB(0, size.height * 0.01, 0, 0),
                         child: ElevatedButton(
                           style: ButtonStyle(
-                            shape:
-                                MaterialStateProperty.all<RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
+                            shape: MaterialStateProperty.all<
+                                RoundedRectangleBorder>(RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(28.0),
                             )),
                             backgroundColor:
                                 MaterialStateProperty.all(Color(0xFF6F35A5)),
                           ),
-                          onPressed: () { _login(context); },
+                          onPressed: () {
+                            _login(context);
+                          },
                           child: Text(
                             'Giriş Yap',
                             style: TextStyle(color: Colors.white, fontSize: 18),
@@ -231,7 +233,8 @@ class _SignInPage extends State<SignInPage> {
                                     TextSpan(
                                         text: ' Üye ol',
                                         style: TextStyle(
-                                            color: Colors.blueAccent, fontSize: 15),
+                                            color: Colors.blueAccent,
+                                            fontSize: 15),
                                         recognizer: TapGestureRecognizer()
                                           ..onTap = () {
                                             Navigator.push(
@@ -256,9 +259,11 @@ class _SignInPage extends State<SignInPage> {
                               //mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 IconButton(
-                                    onPressed: _misafirgirisi,
-                                    icon: Image.asset('lib/assets/icons/icons8-facebook-30.png'),
-                                  iconSize: 50,)
+                                  onPressed: _misafirgirisi,
+                                  icon: Image.asset(
+                                      'lib/assets/icons/icons8-facebook-30.png'),
+                                  iconSize: 50,
+                                )
                               ],
                             ),
                             SizedBox(
@@ -268,11 +273,12 @@ class _SignInPage extends State<SignInPage> {
                               //mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 IconButton(
-                                  icon: Image.asset('lib/assets/icons/icons8-google-30.png'),
+                                  icon: Image.asset(
+                                      'lib/assets/icons/icons8-google-30.png'),
                                   iconSize: 50,
                                   onPressed: () {
                                     _logInGoogle(context);
-                                   //Navigator.pushNamed(context, "/signUpDetailsPage");
+                                    //Navigator.pushNamed(context, "/signUpDetailsPage");
                                   },
                                 )
                               ],
@@ -290,7 +296,7 @@ class _SignInPage extends State<SignInPage> {
   }
 
   void _misafirgirisi() async {
-    UserCredential result =await FirebaseAuth.instance.signInAnonymously();
-    print("oturum açan user id:" +result.user!.uid.toString());
+    UserCredential result = await FirebaseAuth.instance.signInAnonymously();
+    print("oturum açan user id:" + result.user!.uid.toString());
   }
 }

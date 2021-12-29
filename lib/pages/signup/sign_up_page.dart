@@ -5,7 +5,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class SignUpPage  extends StatefulWidget with ChangeNotifier{
+class SignUpPage extends StatefulWidget with ChangeNotifier {
   SignUpPage({Key? key}) : super(key: key);
 
   @override
@@ -17,7 +17,7 @@ class _SignUpPageState extends State<SignUpPage> {
   static final _formkey = GlobalKey<FormState>();
 
   String? _email, _password;
-  
+
   @override
   Widget build(BuildContext context) {
     // void phoneSignIn(BuildContext context) async {
@@ -29,12 +29,9 @@ class _SignUpPageState extends State<SignUpPage> {
     void _signUp(BuildContext context) async {
       _formkey.currentState!.save();
       final _userViewModel = Provider.of<UserViewModel>(context, listen: false);
-      
+
       await _userViewModel.createUser(_email!, _password!);
-      // await Navigator.of(context).pushReplacement(MaterialPageRoute(
-      //   builder: (context) => HomePage(),
-      
-      
+      await Navigator.of(context).pushNamed("/homePage");
     }
 
     Size size = MediaQuery.of(context).size;
@@ -58,9 +55,9 @@ class _SignUpPageState extends State<SignUpPage> {
                 image: AssetImage("assest/signup.png"), fit: BoxFit.cover)), */
           child: SingleChildScrollView(
               child: Container(
-                      padding: EdgeInsets.fromLTRB(20, 15, 20, 20),
-                      decoration: new BoxDecoration(color: Colors.white),
-                      child: Column(
+            padding: EdgeInsets.fromLTRB(20, 15, 20, 20),
+            decoration: new BoxDecoration(color: Colors.white),
+            child: Column(
               //mainAxisSize: MainAxisSize.max,
               children: [
                 new Text("Üye Ol",
@@ -75,7 +72,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   height: size.height * 0.09,
                 ),
                 TextFormField(
-                   onSaved: (String? email) {
+                  onSaved: (String? email) {
                     _email = email;
                   },
                   // validator: (value) {
@@ -84,7 +81,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   //   }
                   //   return null;
                   // },
-                 
+
                   decoration: InputDecoration(
                     hintText: "E-mail adresinizi girin",
                     hintStyle: TextStyle(fontSize: 16),
@@ -118,7 +115,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   //   }
                   //   return null;
                   // },
-                  
+
                   decoration: InputDecoration(
                     hintText: "Şifrenizi girin",
                     hintStyle: TextStyle(fontSize: 16),
@@ -143,7 +140,6 @@ class _SignUpPageState extends State<SignUpPage> {
                   height: size.height * 0.05,
                 ),
                 TextFormField(
-                  
                   decoration: InputDecoration(
                     hintText: "Şifrenizi tekrar girin",
                     hintStyle: TextStyle(fontSize: 16),
@@ -167,7 +163,6 @@ class _SignUpPageState extends State<SignUpPage> {
                 SizedBox(
                   height: size.height * 0.01,
                 ),
-               
                 SizedBox(
                   height: size.height * 0.18,
                 ),
@@ -219,8 +214,8 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
               ],
-                      ),
-                    )),
+            ),
+          )),
         ),
       ),
     );

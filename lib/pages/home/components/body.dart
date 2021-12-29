@@ -15,29 +15,32 @@ class Body extends StatelessWidget {
           children: [
             HomeHeader(),
             SizedBox(
-              height: 9,
+              height: 11,
             ),
             // Divider(
             //   color: Colors.black,
             //   thickness: 0.3,
             //   height: 15.6,
             // ),
-            DiscountBanner(),
-            Categories(),
-            Divider(
-              color: Colors.black,
-              thickness: 0.3,
-              height: 10,
+            // DiscountBanner(),
+            SizedBox(
+              height: 3,
             ),
+            Categories(),
+            // Divider(
+            //   color: Colors.black,
+            //   thickness: 0.3,
+            //   height: 10,
+            // ),
             SizedBox(
               height: 5,
             ),
             PopularProducts(),
-            Divider(
-              color: Colors.black,
-              thickness: 0.3,
-              height: 10,
-            ),
+            // Divider(
+            //   color: Colors.black,
+            //   thickness: 0.3,
+            //   height: 10,
+            // ),
             SizedBox(
               height: 5,
             ),

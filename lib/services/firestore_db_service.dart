@@ -12,23 +12,28 @@ import 'package:flutter/cupertino.dart';
 class FirestoreDbService implements UserDbBase{
     final FirebaseFirestore _fireBaseDb= FirebaseFirestore.instance;
     final FirebaseAuth _firebaseAuth= FirebaseAuth.instance;
+    CollectionReference users = FirebaseFirestore.instance.collection('Users');
+
     
     
     
+   @override
+ 
+  Future<void> updateUser(String email, String password) async {
     
-  @override
-  Future<void> Create(UserModel model) async {
-    CollectionReference _collectionRef=_fireBaseDb.collection("users");
-    _collectionRef.add({
-      'email':  model.email,
-      //'lastName': _userModel.lastName,
-      //'email': _userModel.email,
-      'password': model.password
-    }).then((value) => debugPrint(
-      "${model.lastName} kişisi veri tabanına eklendi"
-    )).catchError((error) => print("Kişi eklerken bir hata oluştu: $error"));
-    
-  
+    users.add({"email": email, "password": password});
+    // Map _addedUserMap = model.toMap();
+    // _addedUserMap['createdAt'] = FieldValue.serverTimestamp();
+    // await _fireBaseDb
+    //     .collection("users")
+    //     .doc(model.UserID!)
+    //     .set({'UserMap': _addedUserMap});
+    // DocumentSnapshot _readedUser =
+    //     await _fireBaseDb.doc("users/${model.UserID}").get();
+    // Map<String, dynamic> _readedUserMap =
+    //     _readedUser.data() as Map<String, dynamic>;
+
+    // UserModel _readedUserObject = UserModel.fromMap(_readedUserMap);
   }
 
   @override
@@ -46,6 +51,12 @@ class FirestoreDbService implements UserDbBase{
   @override
   Future<void> Update() {
     // TODO: implement Update
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<void> Create(UserModel model) {
+    // TODO: implement Create
     throw UnimplementedError();
   }
 

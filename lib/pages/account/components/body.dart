@@ -24,11 +24,6 @@ class Body extends StatelessWidget {
               press: () => {},
             ),
             ProfileMenu(
-              text: "Bildirimler",
-              icon: "lib/assets/icons/bell.svg",
-              press: () => {},
-            ),
-            ProfileMenu(
               text: "Ayarlar",
               icon: "lib/assets/icons/settings.svg",
               press: () => {},
